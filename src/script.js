@@ -24,6 +24,7 @@ let loseText = 'You Lose',
 
 let model = {
 
+
     keyboardEvents: () => {
         let left = keyboard('ArrowLeft'),
             right = keyboard('ArrowRight'),
@@ -201,6 +202,7 @@ let view = {
                                 //проверка победы
                                 if (!asteroids[0]) {
                                     model.gameEnd(winText);
+                                    clearInterval(Timer);
                                     gameStatus = 2;
                                     return false;
                                 }
@@ -212,6 +214,7 @@ let view = {
                 //Пвроерка проиграша
                 if (asteroids.length > 0 && bulletsLeft <= 0 && bullets.length <= 0) {
                     model.gameEnd(loseText);
+                    clearInterval(Timer);
                     gameStatus = 2;
                     return false;
                 }
